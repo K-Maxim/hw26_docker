@@ -8,6 +8,7 @@ from sqlalchemy.exc import IntegrityError
 app = Flask("app")
 app.config.from_pyfile("default_config.py")
 app.config.from_envvar("APP_SETTINGS", silent=True)
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///flask_app_user:flask_app_password@pg/flask_app_db"
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
